@@ -1,1 +1,1 @@
-Die echte große Programmierarbeit (GroPro) ist meine IHK-Abschlussprüfung 2014.
+Die echte grosse Programmierarbeit (GroPro) ist meine IHK-Abschlusspruefung 2014.
