@@ -1,0 +1,32 @@
+
+n:NimGame
+c:Controller
+m:AbstractModel
+in:InputReader
+out:OutputWriter
+
+n:n.find files
+n[1]:c.create
+c:in.create
+c:data=in.read data
+c:m.create
+c:m.write data
+c:out.create
+
+n:c[c1].run
+[c:loop fuer alle strategien]
+  c[c1]:c[c2].startBacktrack(strategy)         .
+
+[c:loop rekursiv bis gefunden]
+  c[c2]:c[c3].backtrack                               .
+
+[/c]
+
+[/c]
+
+c[c1]:m.get start area
+c[c1]:out.write(start area, strategies)
+
+c[c1]:warnings=in.get warnings
+c[c1]:out.append warnings
+

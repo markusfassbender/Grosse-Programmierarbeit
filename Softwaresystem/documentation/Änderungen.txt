@@ -1,0 +1,2 @@
+- InputReader.warnings auf protected gesetzt
+- Direction überall zu Decision geändert
