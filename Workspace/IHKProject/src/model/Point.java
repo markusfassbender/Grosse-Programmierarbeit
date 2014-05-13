@@ -1,23 +1,59 @@
 package model;
 
-public class Point {
+/**
+ * Stellt eine Parzelle auf der Fläche dar.
+ * 
+ * @author Markus Faßbender
+ */
+public class Point
+{
+	/**
+	 * Wert für x.
+	 */
 	public int x;
+
+	/**
+	 * Wert für y.
+	 */
 	public int y;
-	
-	public Point() {
+
+	/**
+	 * Konstruktor.
+	 */
+	public Point()
+	{
 		x = y = 0;
 	}
-	
-	public Point(int x, int y) {
+
+	/**
+	 * Konstruktor
+	 * 
+	 * @param x
+	 *            Der x-Wert
+	 * @param y
+	 *            Der y-Wert
+	 */
+	public Point(int x, int y)
+	{
 		this.x = x;
 		this.y = y;
 	}
-	
-	public boolean isEqual(Point p) {
+
+	/**
+	 * Prüft auf Gleicheit eines anderen Punktes.
+	 * 
+	 * @param p
+	 *            Der andere Punkt
+	 * @return true falls die Punkte gleich sind
+	 */
+	public boolean isEqual(Point p)
+	{
 		return x == p.x && y == p.y;
 	}
-	
-	public String toString() {
-		return "" + (x+1) + "," + (y+1); 
+
+	@Override
+	public String toString()
+	{
+		return "" + (x + 1) + "," + (y + 1);
 	}
 }
