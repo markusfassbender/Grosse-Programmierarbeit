@@ -1,2 +1,7 @@
 - InputReader.warnings auf protected gesetzt
 - Direction überall zu Decision geändert
+- UML Area konstruktor hat int[] statt [][]
+- controller fügt die strategien im konstruktor ein
+- methode numberOfCells in Area
+- methode isPointValid(Poin p) in Area
+- methode in strategy getNextPointWithDecision(Point lastPoint, char decision)
