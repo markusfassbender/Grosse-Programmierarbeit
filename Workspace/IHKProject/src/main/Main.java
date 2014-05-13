@@ -21,6 +21,8 @@ public class Main
 				c.run();
 			} catch(InputMismatchException ime) {
 				// ignore, because the error has already been written to the view
+			} catch(IllegalArgumentException iae) {
+				// ignore, because the error has already been written to the view
 			} catch (Exception e) {
 				System.err.println("Exception: " + e.getMessage() + "\n" );
 				e.printStackTrace();

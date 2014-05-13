@@ -5,3 +5,4 @@
 - methode numberOfCells in Area
 - methode isPointValid(Poin p) in Area
 - methode in strategy getNextPointWithDecision(Point lastPoint, char decision)
+- getWarning gibt einen string statt liste

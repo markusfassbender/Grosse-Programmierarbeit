@@ -35,6 +35,14 @@ public class InputFileReader extends InputReader
 				
 				dimensions[0] = Integer.parseInt(values[0]);
 				dimensions[1] = Integer.parseInt(values[1]);
+				
+				if(!isValueValid(dimensions[0]) || !isValueValid(dimensions[1]))
+				{
+					sc.close();
+					throw new InputMismatchException("Die Abmessung der Flaeche muessen zwischen " + DIMENSION_MINIMUM
+							+ " und " + DIMENSION_MAXIMUM + " liegen!");
+				}
+				
 				break;
 			}
 		}
@@ -59,7 +67,14 @@ public class InputFileReader extends InputReader
 				if(counter == 1) {
 					String[] values = line.split("\\s");
 					
-					point = pointFromStringValues(values[0], values[1]);
+					try {
+						point = pointFromStringValues(values[0], values[1]);
+					} catch(InputMismatchException e) {
+						sc.close();
+						throw e;
+					}
+					
+					
 					break;
 				} else {
 					++counter;
@@ -88,10 +103,20 @@ public class InputFileReader extends InputReader
 				if(counter == 2) {
 					String[] values = line.split("\\s");
 					
-					Point start = pointFromStringValues(values[0], values[1]);
-					Point end = pointFromStringValues(values[2], values[3]);
-					
-					blocks.add(new Block(start, end));
+					if(values.length >= 4)
+					{
+						try {
+							Point start = pointFromStringValues(values[0], values[1]);
+							Point end = pointFromStringValues(values[2], values[3]);
+
+							blocks.add(new Block(start, end));
+						} catch(InputMismatchException e) {
+							sc.close();
+							throw e;
+						}
+					} else {
+						warnings.add("Das Hindernis '" + line + "' wurde ignoriert, da er unzureichend definiert ist.");
+					}
 				} else {
 					++counter;
 				}
@@ -105,9 +130,22 @@ public class InputFileReader extends InputReader
 	}
 	
 	private Point pointFromStringValues(String first, String second) {
-		int x = Integer.parseInt(first) - 1;
-		int y = Integer.parseInt(second) - 1;
+		int x = Integer.parseInt(first);
+		int y = Integer.parseInt(second);
 		
-		return new Point(x,y);
+		if(isValueValid(x) && isValueValid(y))
+		{
+			return new Point(x - 1,y - 1);
+		}
+		else
+		{
+			throw new InputMismatchException("Die Werte eines Punktes muessen zwischen " + DIMENSION_MINIMUM
+					+ " und " + DIMENSION_MAXIMUM + " liegen!");
+		}
+	}
+	
+	private boolean isValueValid(int value)
+	{
+		return value >= DIMENSION_MINIMUM && value <= DIMENSION_MAXIMUM;
 	}
 }

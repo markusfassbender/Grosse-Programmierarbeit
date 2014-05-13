@@ -1,24 +1,50 @@
 Startpunkt (1,1)
-  1 2 3
-1  ,H, ,
-2  , , ,
-3  , , ,
+  1
+1 S 
+2   
+3   
+4   
+5   
+6   
+7 H 
+8   
+9   
+10   
 
 
 Uhrzeiger-Strategy
-  1 2 3
-1  ,H, ,
-2  , , ,
-3  , , ,
+  1
+1 v 
+2 v 
+3 v 
+4 v 
+5 v 
+6 Z 
+7 H 
+8   
+9   
+10   
+
+Routenplan:
+[1,1, 6,1]
 
 Meine Strategie
-  1 2 3
-1  ,H, ,
-2  , , ,
-3  , , ,
+  1
+1 v 
+2 v 
+3 v 
+4 v 
+5 v 
+6 Z 
+7 H 
+8   
+9   
+10   
 
+Routenplan:
+[1,1, 6,1]
 
-zu versiegelnde Parzellen: 8
+zu versiegelnde Parzellen: 9
 Hindernisparzellen: 1
-versiegelte Parzellen: 0
-nicht versiegelte Parzellen: 8
+versiegelte Parzellen: 6
+nicht versiegelte Parzellen: 3

@@ -48,22 +48,24 @@ public class OutputFileWriter extends OutputWriter {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("Startpunkt (" + startArea.getStartPoint().toString() + ")\n");
-		sb.append(startArea.toString() + "\n\n");
+		sb.append(startArea.toString() + "\n");
 
 		for(Strategy strategy : strategies) {
-			sb.append(strategy.getName() + "\n");
-			sb.append(strategy.getArea().toString() + "\n");
+			sb.append("\n" + strategy.getName() + "\n");
+			sb.append(strategy.getBestArea().toString() + "\n");
+			sb.append("Routenplan:\n");
+			sb.append(strategy.getBestRoute().toString() + "\n");
 		}
 		
 		
-		Strategy firstStrategy = strategies.get(0);
-		int allCells = firstStrategy.getArea().numberOfCells();
-		int blockedCells = firstStrategy.getArea().numberOfBlockedCells();
+		Area firstStrategyArea = strategies.get(0).getBestArea();
+		int allCells = firstStrategyArea.numberOfCells();
+		int blockedCells = firstStrategyArea.numberOfBlockedCells();
 		
 		sb.append("\nzu versiegelnde Parzellen: " + (allCells - blockedCells) + "\n");
 		sb.append("Hindernisparzellen: " + blockedCells + "\n");
-		sb.append("versiegelte Parzellen: " + firstStrategy.getArea().numberOfWorkedCells() + "\n");
-		sb.append("nicht versiegelte Parzellen: " + firstStrategy.getArea().numberOfNonWorkedCells());
+		sb.append("versiegelte Parzellen: " + (firstStrategyArea.numberOfWorkedCells() + 1)+ "\n"); // plus 1 weil z nicht mitgezählt wird
+		sb.append("nicht versiegelte Parzellen: " + firstStrategyArea.numberOfNonWorkedCells());
 		
 		
 		

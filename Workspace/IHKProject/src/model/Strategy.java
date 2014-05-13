@@ -4,16 +4,26 @@ import java.util.*;
 
 public abstract class Strategy {
 	private Area area;
+	private Area bestArea;
+	
 	private List<Point> route;
 	private List<Point> bestRoute;
+	
 	private int pointsInBestRoute;
 	
 	public Strategy(Area area) {
 		this.area = new Area(area);
+		this.route = new ArrayList<Point>();
+		this.pointsInBestRoute = 0;
+		saveCurrentRouteAndAreaAsBest();
 	}
 	
 	public Area getArea() {
 		return area;
+	}
+	
+	public Area getBestArea() {
+		return bestArea;
 	}
 	
 	public List<Point> getRoute() {
@@ -21,7 +31,29 @@ public abstract class Strategy {
 	}
 
 	public List<Point> getBestRoute() {
-		return bestRoute;
+		if(bestRoute.size() == 0) {
+			return bestRoute;
+		}
+		
+		List<Point> optimizedRoute = new ArrayList<Point>(bestRoute);
+		boolean allXEqual, allYEqual;
+		Point last, current, next;
+		
+		for(int i = 1; i < bestRoute.size() - 1; ++i) {
+			last = bestRoute.get(i - 1);
+			current = bestRoute.get(i);
+			next = bestRoute.get(i + 1);
+			
+			allXEqual = (last.x == current.x && last.x == next.x);
+			allYEqual = (last.y == current.y && last.y == next.y);
+			
+			if(allXEqual || allYEqual) {
+				// falls sich x oder y nicht geändert haben, kann das mittlere element entfernt werden
+				optimizedRoute.remove(current);
+			}
+		}
+		
+		return optimizedRoute;
 	}
 
 	public int getNumberOfPointsInBestRoute() {
@@ -58,11 +90,27 @@ public abstract class Strategy {
 	
 	
 	public void addToRouteIfNeeded(int lastDecision, Point p) {
-		// TODO: implement
+		if(!route.contains(p)) {
+			route.add(p);
+		}
+		
+		if(pointsInBestRoute < area.numberOfWorkedCells())
+		{
+			saveCurrentRouteAndAreaAsBest();
+			bestArea.setCell(p, 'Z');
+		}
 	}
 	
-	public void removeFromRouteIfNeeded(Point p) {
-		// TODO: implement
+	private void saveCurrentRouteAndAreaAsBest() {
+		bestRoute = new ArrayList<Point>(route);
+		bestArea = new Area(area);
+		pointsInBestRoute = area.numberOfWorkedCells();
+	}
+	
+	public void removeFromRouteIfNeeded(Point p)
+	{
+		route.remove(p);
+		// TODO: besser remove last element?
 	}
 
 	

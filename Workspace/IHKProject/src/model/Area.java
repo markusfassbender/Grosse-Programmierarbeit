@@ -50,6 +50,21 @@ public class Area {
 	}
 	
 	
+	public boolean containsEndPoint() {
+		for(int row = 0; row < this.area.length; ++row)
+		{ // iterate rows
+			for(int column = 0; column < this.area[0].length; ++column)
+			{ // iterate columns
+				if(this.area[row][column] == 'Z') {
+					return true;
+				}
+				
+			}
+		}
+		
+		return false;
+	}
+	
 	public char getCell(Point p) {
 		return area[p.x][p.y];
 	}
@@ -112,12 +127,29 @@ public class Area {
 	
 	public void setBlocks(List<Block> blocks)
 	{
+		Point blockStart, blockEnd;
+		
 		for(Block block : blocks)
 		{
-			// handle block
-			for(int row = block.getStartPoint().x; row <= block.getEndPoint().x; ++row) {
-				for(int column = block.getStartPoint().y; column <= block.getEndPoint().y; ++column) {
-					area[row][column] = 'H';
+			blockStart = block.getStartPoint();
+			blockEnd = block.getEndPoint();
+			
+			if(!isPointValid(blockStart) || !isPointValid(blockEnd)) {
+				throw new IllegalArgumentException("Der Block muss innerhalb der Abmessungen der Flaeche liegen!");
+			}
+			
+			// fuege block ein
+			for(int row = blockStart.x; row <= blockEnd.x; ++row)
+			{
+				for(int column = blockStart.y; column <= blockEnd.y; ++column)
+				{
+					if(startPoint.x == row && startPoint.y == column)
+					{
+						throw new IllegalArgumentException("Der Block darf den Startpunkt nicht ueberschneiden!");
+					} else {
+						area[row][column] = 'H';
+					}
+					
 				}
 			}
 		}
@@ -125,6 +157,7 @@ public class Area {
 	
 	public String toString()
 	{
+		boolean printStart = !containsEndPoint();
 		StringBuilder sb = new StringBuilder(" ");
 		
 		for(int i = 1; i <= area[0].length; ++i) {
@@ -138,7 +171,11 @@ public class Area {
 			
 			for(int column = 0; column < area[0].length; ++column)
 			{ // iterate area cells
-				sb.append(area[row][column] + ",");
+				if(printStart && row == startPoint.x && column == startPoint.y) {
+					sb.append("S ");					
+				} else {
+					sb.append(area[row][column] + " ");
+				}
 			}
 			
 			sb.append("\n");

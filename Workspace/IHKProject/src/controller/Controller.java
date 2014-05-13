@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.List;
 
 import view.*;
@@ -16,21 +17,30 @@ public class Controller {
 	public Controller(File inFile, File outFile) throws FileNotFoundException
 	{
 		input = new InputFileReader(inFile);
+		output = new OutputFileWriter(outFile);
+		Area startArea = null;
 		
-		int[] dimensions = input.readAreaDimensions();
-		Point startPoint = input.readStartPoint();
-		List<Block> blocks = input.readBlocks();
-		
-		// validiere daten, hier fliegt sonst eine exception
-		Area startArea = new Area(dimensions, startPoint);
-		startArea.setBlocks(blocks);
+		// try parsing from file
+		try {
+			int[] dimensions = input.readAreaDimensions();
+			Point startPoint = input.readStartPoint();
+			List<Block> blocks = input.readBlocks();
+			
+			// validiere daten, hier fliegt sonst eine exception
+			startArea = new Area(dimensions, startPoint);
+			startArea.setBlocks(blocks);
+		} catch(InputMismatchException e) {
+			output.append("Fehler: " + e.getMessage());
+			throw e;
+		} catch(IllegalArgumentException e) {
+			output.append("Fehler: " + e.getMessage());
+			throw e;
+		}
 		
 		model = new Model();
 		model.setStartArea(startArea);
 		model.addStrategy(new ClockwiseStrategy(startArea));
 		model.addStrategy(new MyStrategy(startArea));
-		
-		output = new OutputFileWriter(outFile);
 	}
 	
 	public void run()
@@ -44,8 +54,10 @@ public class Controller {
 		output.write(model.getStartArea(), strategies);
 		
 		
-		List<String> warnings = input.getWarnings();
-		// TODO: Append warnings
+		String warning = input.getWarning();
+		if(warning != null) {
+			output.append("\n\n" + warning);			
+		}
 	}
 	
 	private void startBacktracking(Strategy strategy)
@@ -72,7 +84,6 @@ public class Controller {
 			return false;
 		}
 		
-		strategy.addToRouteIfNeeded(lastDecision, point);
 		boolean success = false;
 		
 		for(int step = 0; step <= 3; ++step)
@@ -80,6 +91,7 @@ public class Controller {
 			int decision = strategy.getNextDecision(lastDecision, step);
 			char value = strategy.getValueForDecision(decision);
 			area.setCell(point, value); // setze wert in area ein
+			strategy.addToRouteIfNeeded(lastDecision, point);
 			
 			Point nextPoint = strategy.getNextPointWithDecision(point, decision);
 			
