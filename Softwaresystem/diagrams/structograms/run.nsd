@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;run&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;strategies := alle strategien des models&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<while text="&#34;iteriere über alle strategien in strategies&#34;" comment="&#34;&#34;" color="ffffff">
+			<qWhile>
+				<call text="&#34;startBacktracking(strategie)&#34;" comment="&#34;&#34;" color="ffffff"></call>
+			</qWhile>
+		</while>
+		<instruction text="&#34;startArea := Startarea aus dem Model&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;schreibe startArea und strategies in output&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;warnings := hole warnings von input&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+		<alternative text="&#34;ist warnings nicht leer?&#34;" comment="&#34;&#34;" color="ffffff">
+			<qTrue>
+				<instruction text="&#34;hänge warnings an output an&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qTrue>
+			<qFalse>
+			</qFalse>
+		</alternative>
+	</children>
+</root>

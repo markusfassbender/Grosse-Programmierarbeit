@@ -195,7 +195,6 @@ public abstract class Strategy
 	public void removeFromRouteIfNeeded(Point p)
 	{
 		route.remove(p);
-		// TODO: besser remove last element?
 	}
 
 	/**

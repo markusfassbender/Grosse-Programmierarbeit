@@ -17,7 +17,7 @@ public class OutputFileWriter extends OutputWriter
 	 * @param path
 	 *            Der Pfad zur Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht gefunden werden konnte
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
 	 */
 	public OutputFileWriter(String path) throws FileNotFoundException
 	{
@@ -30,7 +30,7 @@ public class OutputFileWriter extends OutputWriter
 	 * @param file
 	 *            Die Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht gefunden werden konnte
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
 	 */
 	public OutputFileWriter(File file) throws FileNotFoundException
 	{
@@ -43,7 +43,7 @@ public class OutputFileWriter extends OutputWriter
 	 * @param file
 	 *            Die Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht gefunden werden konnte
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
 	 */
 	private void setFile(File file) throws FileNotFoundException
 	{
@@ -80,14 +80,9 @@ public class OutputFileWriter extends OutputWriter
 		sb.append("\nzu versiegelnde Parzellen: " + (allCells - blockedCells)
 				+ "\n");
 		sb.append("Hindernisparzellen: " + blockedCells + "\n");
+		// plus 1 weil z nicht mitgezählt wird
 		sb.append("versiegelte Parzellen: "
-				+ (firstStrategyArea.numberOfWorkedCells() + 1) + "\n"); // plus
-																			// 1
-																			// weil
-																			// z
-																			// nicht
-																			// mitgezählt
-																			// wird
+				+ (firstStrategyArea.numberOfWorkedCells() + 1) + "\n");
 		sb.append("nicht versiegelte Parzellen: "
 				+ firstStrategyArea.numberOfNonWorkedCells());
 

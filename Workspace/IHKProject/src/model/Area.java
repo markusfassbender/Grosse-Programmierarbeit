@@ -80,7 +80,7 @@ public class Area
 	 *            Die Parzelle
 	 * @return true falls diese existiert.
 	 */
-	public boolean isPointValid(Point p)
+	public boolean existsCell(Point p)
 	{
 		return (p.x >= 0 && p.x < area.length)
 				&& (p.y >= 0 && p.y < area[0].length);
@@ -258,33 +258,25 @@ public class Area
 	 */
 	public void setBlocks(List<Block> blocks)
 	{
-		Point blockStart, blockEnd;
-
 		for (Block block : blocks)
 		{
-			blockStart = block.getStartPoint();
-			blockEnd = block.getEndPoint();
-
-			if (!isPointValid(blockStart) || !isPointValid(blockEnd))
+			// prüfe auf gültige lage
+			if (!existsCell(block.getStartPoint()) || !existsCell(block.getEndPoint()))
 			{
 				throw new IllegalArgumentException(
 						"Der Block muss innerhalb der Abmessungen der Flaeche liegen!");
 			}
 
-			// fuege block ein
-			for (int row = blockStart.x; row <= blockEnd.x; ++row)
+			// fuege geblockte parzellen hinzu
+			for(Point p : block.getPointsBlocked())
 			{
-				for (int column = blockStart.y; column <= blockEnd.y; ++column)
+				if (startPoint.x == p.x && startPoint.y == p.y)
 				{
-					if (startPoint.x == row && startPoint.y == column)
-					{
-						throw new IllegalArgumentException(
-								"Der Block darf den Startpunkt nicht ueberschneiden!");
-					} else
-					{
-						area[row][column] = 'H';
-					}
-
+					throw new IllegalArgumentException(
+							"Der Block darf den Startpunkt nicht ueberschneiden!");
+				} else
+				{
+					setCell(p, 'H');
 				}
 			}
 		}
@@ -307,9 +299,7 @@ public class Area
 			sb.append("" + (row + 1) + " ");
 
 			for (int column = 0; column < area[0].length; ++column)
-			{ // iterate
-				// area
-				// cells
+			{ // iterate area cells
 				if (printStart && row == startPoint.x && column == startPoint.y)
 				{
 					sb.append("S ");

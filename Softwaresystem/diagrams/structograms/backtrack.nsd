@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;backtrack&#34;,&#34;Eingabeparameter: strategy: Strategy, point: Point&#34;,&#34;lastDecision: int&#34;,&#34;Rückgabewert: boolean&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<alternative text="&#34;ist Point innerhalb der Grenzen?&#34;" comment="" color="ffffff">
+			<qTrue>
+			</qTrue>
+			<qFalse>
+			</qFalse>
+		</alternative>
+		<instruction text="&#34;area := gib die aktuelle Fläche der Strategie&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<instruction text="&#34;success := false&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<call text="&#34;isValidPoint := isValidPoint(area, point)&#34;" comment="" color="ffffff"></call>
+		<alternative text="&#34;prüfe mit isValidPoint,&#34;,&#34;ob Parzelle valide ist&#34;" comment="" color="ffffff">
+			<qTrue>
+				<while text="&#34;für step von 0 bis 3&#34;" comment="" color="ffffff">
+					<qWhile>
+						<call text="&#34;decision := strategy.getNextDecision(lastDecision, step)&#34;" comment="&#34;&#34;" color="ffffff"></call>
+						<call text="&#34;value := strategy.getValueForDecision(decision)&#34;" comment="" color="ffffff"></call>
+						<instruction text="&#34;setze neue value in area ein&#34;" comment="" color="ffffff" rotated="0"></instruction>
+						<call text="&#34;strategy.addToRouteIfNeeded(lastDecision, point)&#34;" comment="&#34;&#34;" color="ffffff"></call>
+						<call text="&#34;success := backtrack(strategy, nächste Parzelle&#34;,&#34;abhängig von step, decision)&#34;" comment="&#34;&#34;" color="ffffff"></call>
+						<alternative text="&#34;success ?&#34;" comment="" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;brich ab, da in einem Unterschritt&#34;,&#34;eine gültige Lösung gefunden wurde&#34;" comment="" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+							</qFalse>
+						</alternative>
+					</qWhile>
+				</while>
+				<alternative text="&#34;success ?&#34;" comment="" color="ffffff">
+					<qTrue>
+					</qTrue>
+					<qFalse>
+						<alternative text="&#34;sind alle Parzellen außer den&#34;,&#34;blockierten versiegelt?&#34;" comment="" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;setzte das Ziel 'Z' an point in area&#34;" comment="" color="ffffff" rotated="0"></instruction>
+								<instruction text="&#34;success := true&#34;" comment="" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;leere die zelle&#34;" comment="" color="ffffff" rotated="0"></instruction>
+								<instruction text="&#34;strategy.removeFrom&#34;,&#34;RouteIfNeeded(point)&#34;" comment="" color="ffffff" rotated="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qFalse>
+				</alternative>
+			</qTrue>
+			<qFalse>
+			</qFalse>
+		</alternative>
+		<instruction text="&#34;return success&#34;" comment="" color="ffffff" rotated="0"></instruction>
+	</children>
+</root>

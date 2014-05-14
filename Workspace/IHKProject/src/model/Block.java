@@ -53,13 +53,23 @@ public class Block
 	}
 
 	/**
-	 * Gibt alle Parzellen, die das Hinternis blockiert.
+	 * Gibt alle Parzellen, die das Hindernis blockiert.
 	 * 
 	 * @return Die blockierten Parzellen
 	 */
 	public List<Point> getPointsBlocked()
 	{
-		// TODO implement
-		return new ArrayList<Point>();
+		LinkedList<Point> blockedPoints = new LinkedList<Point>();
+		
+		for (int x = startPoint.x; x <= endPoint.x; ++x)
+		{
+			for (int y = startPoint.y; y <= endPoint.y; ++y)
+			{
+				// fuege parzelle hinzu
+				blockedPoints.add(new Point(x, y));
+			}
+		}
+		
+		return blockedPoints;
 	}
 }

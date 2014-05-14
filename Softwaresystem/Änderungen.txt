@@ -2,8 +2,12 @@
 - Direction überall zu Decision geändert
 - UML Area konstruktor hat int[] statt [][]
 - controller fügt die strategien im konstruktor ein
-- methode numberOfCells in Area
-- methode isPointValid(Poin p) in Area
+- methode numberOfCells und private numberOfCellsWithValues(char[] possibleValues) in Area
+- methode existsCell(Point p) und containsEndPoint in Area
 - methode in strategy getNextPointWithDecision(Point lastPoint, char decision)
 - getWarning gibt einen string statt liste
 - addToRouteIfNeeded nur noch 1 parameter
+- backtracking letztes if(success) korrigiert im gegensatz zu nassi
+- meine strategie nassi getNextDecision korrigiert
+- add to route geändert, sodass ich immer alle punkte einmal speicher
+- outputFW private setFile

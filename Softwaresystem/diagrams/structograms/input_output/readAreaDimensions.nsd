@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;readAreaDimensions&#34;,&#34;Rückgabewert: int[][]&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;öffne Eingabedatei&#34;" comment="" color="ffffff" rotated="0"></instruction>
+		<while text="&#34;lies zeilenweise in line&#34;" comment="" color="ffffff">
+			<qWhile>
+				<alternative text="&#34;beginnt zeile nicht mit &#34;&#34;; &#34;&#34;&#34;" comment="" color="ffffff">
+					<qTrue>
+						<instruction text="&#34;values = line.split(&#34;&#34; &#34;&#34;)&#34;" comment="" color="ffffff" rotated="0"></instruction>
+						<instruction text="&#34;return geparste werte als int-array&#34;" comment="" color="ffffff" rotated="0"></instruction>
+					</qTrue>
+					<qFalse>
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+	</children>
+</root>

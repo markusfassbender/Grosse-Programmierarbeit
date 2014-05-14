@@ -48,7 +48,7 @@ public class InputFileReader extends InputReader
 			line = sc.nextLine();
 			if (line.startsWith("; ") == false)
 			{
-				String[] values = line.split("\\s");
+				String[] values = line.trim().split("\\s+");
 
 				dimensions[0] = Integer.parseInt(values[0]);
 				dimensions[1] = Integer.parseInt(values[1]);
@@ -87,7 +87,7 @@ public class InputFileReader extends InputReader
 			{
 				if (counter == 1)
 				{
-					String[] values = line.split("\\s");
+					String[] values = line.trim().split("\\s+");
 
 					try
 					{
@@ -128,7 +128,7 @@ public class InputFileReader extends InputReader
 			{
 				if (counter == 2)
 				{
-					String[] values = line.split("\\s");
+					String[] values = line.trim().split("\\s+");
 
 					if (values.length >= 4)
 					{

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="http://structorizer.fisch.lu/" text="&#34;isValidPoint&#34;,&#34;Eingabeparameter: point : Point, area : Area&#34;,&#34;Rückgabewert: boolean&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<alternative text="&#34;ist point innerhalb der area grenzen?&#34;" comment="&#34;&#34;" color="ffffff">
+			<qTrue>
+				<alternative text="&#34;ist point kein Hindernis?&#34;" comment="&#34;&#34;" color="ffffff">
+					<qTrue>
+						<alternative text="&#34;ist point noch unversiegelt?&#34;" comment="&#34;&#34;" color="ffffff">
+							<qTrue>
+								<instruction text="&#34;return true&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;return false&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;return false&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qTrue>
+			<qFalse>
+				<instruction text="&#34;return false&#34;" comment="&#34;&#34;" color="ffffff" rotated="0"></instruction>
+			</qFalse>
+		</alternative>
+	</children>
+</root>
