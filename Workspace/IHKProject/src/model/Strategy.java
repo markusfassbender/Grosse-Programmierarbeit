@@ -2,6 +2,11 @@ package model;
 
 import java.util.*;
 
+/**
+ * Die Schnittstelle einer möglichen Strategie.
+ * 
+ * @author Markus Faßbender
+ */
 public abstract class Strategy
 {
 	/**

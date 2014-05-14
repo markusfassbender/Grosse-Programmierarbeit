@@ -4,6 +4,11 @@ import java.io.*;
 import java.util.List;
 import model.*;
 
+/**
+ * Implementiert die Ausgabe in eine Datei.
+ * 
+ * @author Markus Faßbender
+ */
 public class OutputFileWriter extends OutputWriter
 {
 	/**
@@ -17,7 +22,8 @@ public class OutputFileWriter extends OutputWriter
 	 * @param path
 	 *            Der Pfad zur Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden
+	 *             kann.
 	 */
 	public OutputFileWriter(String path) throws FileNotFoundException
 	{
@@ -30,7 +36,8 @@ public class OutputFileWriter extends OutputWriter
 	 * @param file
 	 *            Die Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden
+	 *             kann.
 	 */
 	public OutputFileWriter(File file) throws FileNotFoundException
 	{
@@ -43,7 +50,8 @@ public class OutputFileWriter extends OutputWriter
 	 * @param file
 	 *            Die Datei
 	 * @throws FileNotFoundException
-	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden kann.
+	 *             Falls die Datei nicht erstellt oder nicht geöffnet werden
+	 *             kann.
 	 */
 	private void setFile(File file) throws FileNotFoundException
 	{
@@ -70,7 +78,7 @@ public class OutputFileWriter extends OutputWriter
 			sb.append("\n" + strategy.getName() + "\n");
 			sb.append(strategy.getBestArea().toString() + "\n");
 			sb.append("Routenplan:\n");
-			sb.append(strategy.getBestRoute().toString() + "\n");
+			sb.append(formatRoute(strategy.getBestRoute()) + "\n");
 		}
 
 		Area firstStrategyArea = strategies.get(0).getBestArea();

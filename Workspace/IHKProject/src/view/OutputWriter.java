@@ -1,16 +1,43 @@
 package view;
 
 import java.util.List;
+
 import model.*;
 
 /**
- * Schreibt Ausgabewerte.
+ * Schnittelle zur Ausgabe von Ergebnissen.
  * 
  * @author Markus Faﬂbender
  * 
  */
 public abstract class OutputWriter
 {
+	/**
+	 * Formatiert eine Route in einen lesbaren String.
+	 * 
+	 * @param route
+	 *            Die Route
+	 * @return Die formatierte Route oder einen leeren String, wenn die Route
+	 *         leer ist.
+	 */
+	protected String formatRoute(List<Point> route)
+	{
+		if (route != null && route.size() > 0)
+		{
+			StringBuilder sb = new StringBuilder(route.get(0).toString());
+
+			for (int pointIndex = 1; pointIndex < route.size(); ++pointIndex)
+			{
+				sb.append(" / " + route.get(pointIndex).toString());
+			}
+
+			return sb.toString();
+		} else
+		{
+			return "";
+		}
+	}
+
 	/**
 	 * Schreibt Ausgabewerte nach dem Format der Beispiele in der
 	 * Aufgabenstellung.

@@ -1,5 +1,5 @@
 @echo off
-SET prog=..\NimGame.jar
+SET prog=..\ParquetRobot.jar
 SET inputDir=..\tests\input
 SET outputDir=..\tests\output
 

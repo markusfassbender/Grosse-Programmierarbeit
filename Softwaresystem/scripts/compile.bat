@@ -10,7 +10,7 @@ ECHO Kompilieren abgeschlossen!
 
 cd bin
 Echo Erstelle Executable jar File
-Call jar cvfm ..\NimGame.jar manifest.txt *
+Call jar cvfm ..\ParquetRobot.jar manifest.txt *
 cd ..
 
 ECHO Erstellen Abgeschlossen!

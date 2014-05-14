@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Konkrete implementierung meiner Strategie.
+ * 
+ * @author Markus Faßbender
+ */
 public class MyStrategy extends Strategy
 {
 	/**

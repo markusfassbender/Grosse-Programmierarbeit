@@ -5,6 +5,11 @@ import java.util.*;
 
 import model.*;
 
+/**
+ * Implementiert das Einlesen über eine Datei.
+ * 
+ * @author Markus Faßbender
+ */
 public class InputFileReader extends InputReader
 {
 	/**
@@ -50,17 +55,25 @@ public class InputFileReader extends InputReader
 			{
 				String[] values = line.trim().split("\\s+");
 
-				dimensions[0] = Integer.parseInt(values[0]);
-				dimensions[1] = Integer.parseInt(values[1]);
+				if (values.length == 2)
+				{
+					dimensions[0] = Integer.parseInt(values[0]);
+					dimensions[1] = Integer.parseInt(values[1]);
 
-				if (!isValueValid(dimensions[0])
-						|| !isValueValid(dimensions[1]))
+					if (!isValueValid(dimensions[0])
+							|| !isValueValid(dimensions[1]))
+					{
+						sc.close();
+						throw new InputMismatchException(
+								"Die Abmessung der Flaeche muessen zwischen "
+										+ DIMENSION_MINIMUM + " und "
+										+ DIMENSION_MAXIMUM + " liegen!");
+					}
+				} else
 				{
 					sc.close();
 					throw new InputMismatchException(
-							"Die Abmessung der Flaeche muessen zwischen "
-									+ DIMENSION_MINIMUM + " und "
-									+ DIMENSION_MAXIMUM + " liegen!");
+							"Es muessen genau zwei Werte als Abmessungen der Fläche gegeben sein!");
 				}
 
 				break;
@@ -89,14 +102,22 @@ public class InputFileReader extends InputReader
 				{
 					String[] values = line.trim().split("\\s+");
 
-					try
+					if (values.length == 2)
 					{
-						point = pointFromStringValues(values[0], values[1]);
-					} catch (Exception e)
+						try
+						{
+							point = pointFromStringValues(values[0], values[1]);
+						} catch (Exception e)
+						{
+							sc.close(); // TODO: testen ob runnable auch von
+										// exception erbt
+							throw e;
+						}
+					} else
 					{
-						sc.close(); // TODO: testen ob runnable auch von
-									// exception erbt
-						throw e;
+						sc.close();
+						throw new InputMismatchException(
+								"Es muessen genau zwei Werte zur Definition eines Startpunkts gegeben sein!");
 					}
 
 					break;
@@ -149,7 +170,7 @@ public class InputFileReader extends InputReader
 					{
 						warnings.add("Das Hindernis '"
 								+ line
-								+ "' wurde ignoriert, da er unzureichend definiert ist.");
+								+ "' wurde ignoriert, da es unzureichend definiert ist.");
 					}
 				} else
 				{

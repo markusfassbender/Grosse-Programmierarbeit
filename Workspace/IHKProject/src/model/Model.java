@@ -1,13 +1,29 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+/**
+ * Konkrete Implementierung eines Models mit Variablen. Die Daten werden also im
+ * Arbeitsspeicher gehalten.
+ * 
+ * @author Markus Faﬂbender
+ * 
+ */
 public class Model extends AbstractModel
 {
-	private Area area;
+	/**
+	 * Speichert die Startfl‰che.
+	 */
+	private Area startArea;
+
+	/**
+	 * Speichert die Strategien.
+	 */
 	private List<Strategy> strategies;
 
+	/**
+	 * Konstruktor.
+	 */
 	public Model()
 	{
 		strategies = new ArrayList<>();
@@ -16,13 +32,13 @@ public class Model extends AbstractModel
 	@Override
 	public Area getStartArea()
 	{
-		return area;
+		return startArea;
 	}
 
 	@Override
 	public void setStartArea(Area area)
 	{
-		this.area = area;
+		this.startArea = area;
 	}
 
 	@Override

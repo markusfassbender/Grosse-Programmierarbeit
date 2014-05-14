@@ -1,0 +1,7 @@
+; Abmessungen der Flaeche
+10 10
+; Startparzelle
+1 1
+; Eckepunkte
+2 1 10 10
+1 2 1 10

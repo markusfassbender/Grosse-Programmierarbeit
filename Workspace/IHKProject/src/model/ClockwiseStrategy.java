@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * Konkrete Implementierung der Uhrzeiger-Strategie.
+ * 
+ * @author markus.fassbender
+ * 
+ */
 public class ClockwiseStrategy extends Strategy
 {
 	/**
