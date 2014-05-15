@@ -44,6 +44,7 @@ public class Main
 			} catch (Exception e)
 			{
 				System.err.println("Exception: " + e.getMessage() + "\n");
+				e.printStackTrace();
 			}
 		} else
 		{

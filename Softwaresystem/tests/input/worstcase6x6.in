@@ -1,0 +1,8 @@
+; Beispiel: WorstCase 6x6
+; Abmessungen der Flaeche
+6 6
+; Startparzelle
+1 1
+; Eckepunkte
+6 5 6 5
+5 6 5 6

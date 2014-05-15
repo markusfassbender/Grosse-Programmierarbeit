@@ -14,10 +14,10 @@ IF NOT EXIST %outputDir% GOTO NOOUTPUT
 REM laufen über alle Dateien
 FOR %%f IN (%inputDir%\*.in) DO (
 	REM abspalten des Pfades von der Datei
-	echo -------------- Eingabedatei: %%f --------------
-	echo -------------- Ausgabedatei: %outputDir%\%%~nf.out ------------
+	echo --------- Eingabedatei: %%f ----------
+	echo --------- Ausgabedatei: %outputDir%\%%~nf.out --------
 	REM Ausführen des Beispiels
-	CALL %prog% %%f %outputDir%\%%~nf.out
+	CALL java -jar %prog% %%f %outputDir%\%%~nf.out
 	ECHO.
 )
 

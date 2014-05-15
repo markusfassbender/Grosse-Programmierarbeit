@@ -1,0 +1,4 @@
+- formatieren als blocksatz
+- values aus Main.main entfernen
+- einbringen, dass mein algorithmus als letztes die möglichkeit prüft aus der er kam
+und damit unnötige schritte vermieden werden

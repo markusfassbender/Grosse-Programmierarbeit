@@ -51,14 +51,22 @@ public class InputFileReader extends InputReader
 		while (sc.hasNextLine())
 		{
 			line = sc.nextLine();
-			if (line.startsWith("; ") == false)
+			if (line.length() > 0 && line.startsWith("; ") == false)
 			{
 				String[] values = line.trim().split("\\s+");
 
 				if (values.length == 2)
 				{
-					dimensions[0] = Integer.parseInt(values[0]);
-					dimensions[1] = Integer.parseInt(values[1]);
+					try
+					{
+						dimensions[0] = Integer.parseInt(values[0]);
+						dimensions[1] = Integer.parseInt(values[1]);
+					} catch (NumberFormatException e)
+					{
+						sc.close();
+						throw new InputMismatchException(
+								"Die Abmessungen der Flaeche muessen ganzzahlig sein!");
+					}
 
 					if (!isValueValid(dimensions[0])
 							|| !isValueValid(dimensions[1]))
@@ -73,7 +81,7 @@ public class InputFileReader extends InputReader
 				{
 					sc.close();
 					throw new InputMismatchException(
-							"Es muessen genau zwei Werte als Abmessungen der Fläche gegeben sein!");
+							"Es muessen genau zwei Werte als Abmessungen der Flaeche gegeben sein!");
 				}
 
 				break;
@@ -82,7 +90,15 @@ public class InputFileReader extends InputReader
 
 		sc.close();
 
-		return dimensions;
+		if (dimensions[0] == 0 && dimensions[1] == 0)
+		{
+			throw new InputMismatchException(
+					"Es muessen die Abmessungen der Flaeche definiert sein");
+		} else
+		{
+			return dimensions;
+		}
+
 	}
 
 	@Override
@@ -96,7 +112,7 @@ public class InputFileReader extends InputReader
 		while (sc.hasNextLine())
 		{
 			line = sc.nextLine();
-			if (line.startsWith("; ") == false)
+			if (line.length() > 0 && line.startsWith("; ") == false)
 			{
 				if (counter == 1)
 				{
@@ -109,8 +125,7 @@ public class InputFileReader extends InputReader
 							point = pointFromStringValues(values[0], values[1]);
 						} catch (Exception e)
 						{
-							sc.close(); // TODO: testen ob runnable auch von
-										// exception erbt
+							sc.close();
 							throw e;
 						}
 					} else
@@ -131,7 +146,15 @@ public class InputFileReader extends InputReader
 
 		sc.close();
 
-		return point;
+		if (point != null)
+		{
+			return point;
+		} else
+		{
+			throw new InputMismatchException(
+					"Es muss ein Startpunkt definiert sein!");
+		}
+
 	}
 
 	@Override
@@ -145,7 +168,7 @@ public class InputFileReader extends InputReader
 		while (sc.hasNextLine())
 		{
 			line = sc.nextLine();
-			if (line.startsWith("; ") == false)
+			if (line.length() > 0 && line.startsWith("; ") == false)
 			{
 				if (counter == 2)
 				{
@@ -194,15 +217,22 @@ public class InputFileReader extends InputReader
 	 *            Der zweite Wert als String
 	 * @return Die neue Parzelle
 	 * 
-	 * @throws NumberFormatException
-	 *             Falls die Strings nicht geparsed werden können.
 	 * @throws InputMismatchException
 	 *             Falls die Werte ungültig sind.
 	 */
 	private Point pointFromStringValues(String first, String second)
 	{
-		int x = Integer.parseInt(first);
-		int y = Integer.parseInt(second);
+		int x, y;
+
+		try
+		{
+			x = Integer.parseInt(first);
+			y = Integer.parseInt(second);
+		} catch (NumberFormatException e)
+		{
+			throw new InputMismatchException(
+					"Die Werte eines Punktes muessen ganzzahlig sein!");
+		}
 
 		if (isValueValid(x) && isValueValid(y))
 		{

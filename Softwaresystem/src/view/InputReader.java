@@ -6,7 +6,7 @@ import java.util.*;
 import model.*;
 
 /**
- * Liest Eingabewerte ein.
+ * Schnittelle zum Einlesen von Eingabewerten.
  * 
  * @author Markus Faﬂbender
  * 

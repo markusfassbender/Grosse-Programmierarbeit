@@ -1,4 +1,6 @@
-package model;
+package controller;
+
+import model.Area;
 
 /**
  * Konkrete Implementierung der Uhrzeiger-Strategie.
@@ -22,7 +24,7 @@ public class ClockwiseStrategy extends Strategy
 	@Override
 	public String getName()
 	{
-		return "Uhrzeiger-Strategy";
+		return "Uhrzeiger-Strategie";
 	}
 
 	@Override

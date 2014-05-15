@@ -5,11 +5,21 @@ import java.util.InputMismatchException;
 
 import controller.Controller;
 
+/**
+ * Wrapper um das Programm auszuführen.
+ * 
+ * @author Markus Faßbender
+ */
 public class Main
 {
+	/**
+	 * Führt das Programm mit Parametern aus.
+	 * 
+	 * @param args
+	 *            Die Übergabeparameter
+	 */
 	public static void main(String[] args)
 	{
-
 		if (args.length >= 2)
 		{
 			String in = args[0];
@@ -30,6 +40,7 @@ public class Main
 			} catch (Exception e)
 			{
 				System.err.println("Exception: " + e.getMessage() + "\n");
+				e.printStackTrace();
 			}
 		} else
 		{

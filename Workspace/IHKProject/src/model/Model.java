@@ -2,6 +2,8 @@ package model;
 
 import java.util.*;
 
+import controller.Strategy;
+
 /**
  * Konkrete Implementierung eines Models mit Variablen. Die Daten werden also im
  * Arbeitsspeicher gehalten.

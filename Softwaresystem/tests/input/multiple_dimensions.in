@@ -1,0 +1,7 @@
+; Beispiel: Mehrere Abmessungen
+; Abmessungen der Flaeche
+5 5 4 4
+; Startparzelle
+1 1
+; Eckepunkte
+2 2

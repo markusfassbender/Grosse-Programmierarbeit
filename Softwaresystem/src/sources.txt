@@ -1,13 +1,13 @@
+C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\controller\ClockwiseStrategy.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\controller\Controller.java
+C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\controller\MyStrategy.java
+C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\controller\Strategy.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\main\Main.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\AbstractModel.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\Area.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\Block.java
-C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\ClockwiseStrategy.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\Model.java
-C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\MyStrategy.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\Point.java
-C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\model\Strategy.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\view\InputFileReader.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\view\InputReader.java
 C:\Users\markus.fassbender\Documents\GitHub\RealGroPro\Softwaresystem\src\view\OutputFileWriter.java

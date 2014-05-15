@@ -1,4 +1,6 @@
-package model;
+package controller;
+
+import model.Area;
 
 /**
  * Konkrete implementierung meiner Strategie.

@@ -1,0 +1,49 @@
+Startpunkt (1,1)
+  1 2 3 4 5 6 7 8 9 10
+1 S                   
+2                     
+3                     
+4                     
+5                     
+6                     
+7                     
+8                     
+9                     
+10                     
+
+Uhrzeiger-Strategie
+  1 2 3 4 5 6 7 8 9 10
+1 > > > > > > > > > v 
+2 Z v < v < v < v < v 
+3 ^ v ^ v ^ v ^ v ^ v 
+4 ^ v ^ v ^ v ^ v ^ v 
+5 ^ v ^ v ^ v ^ v ^ v 
+6 ^ v ^ v ^ v ^ v ^ v 
+7 ^ v ^ v ^ v ^ v ^ v 
+8 ^ v ^ v ^ v ^ v ^ v 
+9 ^ v ^ v ^ v ^ v ^ v 
+10 ^ < ^ < ^ < ^ < ^ < 
+
+Routenplan:
+1,1 / 1,10 / 10,10 / 10,9 / 2,9 / 2,8 / 10,8 / 10,7 / 2,7 / 2,6 / 10,6 / 10,5 / 2,5 / 2,4 / 10,4 / 10,3 / 2,3 / 2,2 / 10,2 / 10,1 / 2,1
+
+Meine Strategie
+  1 2 3 4 5 6 7 8 9 10
+1 v v < < < < < < < < 
+2 v v v < < < < < < ^ 
+3 v v v v < < < < ^ ^ 
+4 v v v v v < < ^ ^ ^ 
+5 v v v v v Z ^ ^ ^ ^ 
+6 v v v v > ^ ^ ^ ^ ^ 
+7 v v v > > > ^ ^ ^ ^ 
+8 v v > > > > > ^ ^ ^ 
+9 v > > > > > > > ^ ^ 
+10 > > > > > > > > > ^ 
+
+Routenplan:
+1,1 / 10,1 / 10,10 / 1,10 / 1,2 / 9,2 / 9,9 / 2,9 / 2,3 / 8,3 / 8,8 / 3,8 / 3,4 / 7,4 / 7,7 / 4,7 / 4,5 / 6,5 / 6,6 / 5,6
+
+zu versiegelnde Parzellen: 100
+Hindernisparzellen: 0
+versiegelte Parzellen: 100
+nicht versiegelte Parzellen: 0

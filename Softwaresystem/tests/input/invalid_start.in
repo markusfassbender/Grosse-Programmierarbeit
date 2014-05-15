@@ -1,7 +1,7 @@
+; Beispiel: Ungültiger Startpunkt
 ; Abmessungen der Flaeche
-10 10
+5 5
 ; Startparzelle
-1 1
+4 6
 ; Eckepunkte
-2 1 10 10
-1 2 1 10
+1 1 1 1

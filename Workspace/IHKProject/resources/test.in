@@ -1,5 +1,4 @@
-; Abmessungen der Flaeche
-1 1
-; Startparzelle
-1 1 
-; Eckepunkte
+; Sonderfall 3: Überlagernde Hindernisse
+3 3
+2 2
+; Hindernisse bilden ein Kreuz

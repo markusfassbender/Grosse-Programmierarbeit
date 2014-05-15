@@ -1,7 +1,15 @@
-package model;
+package controller;
 
 import java.util.*;
 
+import model.Area;
+import model.Point;
+
+/**
+ * Die Schnittstelle einer möglichen Strategie.
+ * 
+ * @author Markus Faßbender
+ */
 public abstract class Strategy
 {
 	/**

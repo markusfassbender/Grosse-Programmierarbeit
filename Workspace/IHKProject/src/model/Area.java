@@ -37,7 +37,9 @@ public class Area
 					"Es müssen zwei Dimensionen angegeben werden!");
 		}
 
-		this.area = new char[dimensions[0]][dimensions[1]];
+		int width = dimensions[0];
+		int height = dimensions[1];
+		this.area = new char[width][height];
 
 		for (int row = 0; row < area.length; ++row)
 		{ // iterate rows
@@ -48,7 +50,15 @@ public class Area
 			}
 		}
 
-		this.startPoint = startPoint;
+		if (existsCell(startPoint))
+		{
+			this.startPoint = startPoint;
+		} else
+		{
+			throw new IllegalArgumentException(
+					"Der Startpunkt muss in der Flaeche liegen!");
+		}
+
 	}
 
 	/**

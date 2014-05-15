@@ -41,6 +41,8 @@ public class Controller
 	 * @throws FileNotFoundException
 	 *             Falls eine Datei nicht erstellt oder nicht geöffnet werden
 	 *             kann.
+	 * @throws InputMismatchException Falls syntaktische Fehler auftreten.
+	 * @throws IllegalArgumentException Falls semantische Fehler auftreten.
 	 */
 	public Controller(File inFile, File outFile) throws FileNotFoundException
 	{
@@ -67,6 +69,7 @@ public class Controller
 			throw e;
 		}
 
+		// create and save data
 		model = new Model();
 		model.addStrategy(new ClockwiseStrategy(startArea));
 		model.addStrategy(new MyStrategy(startArea));

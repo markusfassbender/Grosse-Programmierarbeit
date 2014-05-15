@@ -1,0 +1,8 @@
+; Beispiel: Ungültige Trennzeichen
+; Abmessungen der Flaeche
+5,5
+; Startparzelle
+1,1	
+; Eckepunkte
+5 1 5 4
+1 5 1 5

@@ -1,0 +1,7 @@
+; Beispiel: Unzureichend definiertes Hindernis
+; Abmessungen der Flaeche
+5 5
+; Startparzelle
+1 1
+; Eckepunkte
+3 3

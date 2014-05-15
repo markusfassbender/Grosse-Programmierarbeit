@@ -2,8 +2,15 @@ package view;
 
 import java.io.*;
 import java.util.List;
+
+import controller.Strategy;
 import model.*;
 
+/**
+ * Implementiert die Ausgabe in eine Datei.
+ * 
+ * @author Markus Faﬂbender
+ */
 public class OutputFileWriter extends OutputWriter
 {
 	/**
@@ -66,7 +73,7 @@ public class OutputFileWriter extends OutputWriter
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("Startpunkt (" + startArea.getStartPoint().toString() + ")\n");
-		sb.append(startArea.toString() + "\n");
+		sb.append(startArea.toString());
 
 		for (Strategy strategy : strategies)
 		{

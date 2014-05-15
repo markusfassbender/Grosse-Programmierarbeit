@@ -1,6 +1,14 @@
-package model;
+package controller;
 
-public class MyStrategy extends Strategy
+import model.Area;
+
+/**
+ * Konkrete Implementierung der Uhrzeiger-Strategie.
+ * 
+ * @author markus.fassbender
+ * 
+ */
+public class ClockwiseStrategy extends Strategy
 {
 	/**
 	 * Konstruktor.
@@ -8,7 +16,7 @@ public class MyStrategy extends Strategy
 	 * @param area
 	 *            Die Fläche auf der operiert werden kann
 	 */
-	public MyStrategy(Area area)
+	public ClockwiseStrategy(Area area)
 	{
 		super(area);
 	}
@@ -16,13 +24,19 @@ public class MyStrategy extends Strategy
 	@Override
 	public String getName()
 	{
-		return "Meine Strategie";
+		return "Uhrzeiger-Strategie";
+	}
+
+	@Override
+	public int getFirstDecision()
+	{
+		return 0;
 	}
 
 	@Override
 	public int getNextDecision(int lastDecision, int step)
 	{
-		return (lastDecision + step) % 4;
+		return step;
 	}
 
 	@Override
@@ -37,7 +51,7 @@ public class MyStrategy extends Strategy
 			break;
 
 		case 1:
-			value = '<';
+			value = '>';
 			break;
 
 		case 2:
@@ -45,7 +59,7 @@ public class MyStrategy extends Strategy
 			break;
 
 		case 3:
-			value = '>';
+			value = '<';
 			break;
 
 		default:
@@ -54,12 +68,6 @@ public class MyStrategy extends Strategy
 		}
 
 		return value;
-	}
-
-	@Override
-	public int getFirstDecision()
-	{
-		return 0;
 	}
 
 }
