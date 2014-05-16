@@ -39,8 +39,11 @@ public class Main
 				// view
 			} catch (Exception e)
 			{
-				System.err.println("Exception: " + e.getMessage() + "\n");
-				e.printStackTrace();
+				System.err
+						.println("Es ist eine unerwartete Exception aufgetreten."
+								+ "Fehlermeldung: "
+								+ e.getLocalizedMessage()
+								+ "\n");
 			}
 		} else
 		{

@@ -1,0 +1,34 @@
+Startpunkt (1,1)
+  1 2 3 4 5
+1 S         
+2           
+3           
+4           
+5           
+
+Uhrzeiger-Strategie
+  1 2 3 4 5
+1 > > > > v 
+2 v < v < v 
+3 v ^ v ^ v 
+4 v ^ v ^ v 
+5 Z ^ < ^ < 
+
+Routenplan:
+1,1 / 1,5 / 5,5 / 5,4 / 2,4 / 2,3 / 5,3 / 5,2 / 2,2 / 2,1 / 5,1
+
+Meine Strategie
+  1 2 3 4 5
+1 v v < < < 
+2 v v v < ^ 
+3 v v Z ^ ^ 
+4 v > > ^ ^ 
+5 > > > > ^ 
+
+Routenplan:
+1,1 / 5,1 / 5,5 / 1,5 / 1,2 / 4,2 / 4,4 / 2,4 / 2,3 / 3,3
+
+zu versiegelnde Parzellen: 25
+Hindernisparzellen: 0
+versiegelte Parzellen: 25
+nicht versiegelte Parzellen: 0

@@ -20,14 +20,10 @@ public class Main
 	 */
 	public static void main(String[] args)
 	{
-		// TODO: args statt values verwenden
-		String[] values =
-		{ "resources/test.in", "resources/test.out" };
-
-		if (values.length >= 2)
+		if (args.length >= 2)
 		{
-			String in = values[0];
-			String out = values[1];
+			String in = args[0];
+			String out = args[1];
 
 			try
 			{
@@ -43,8 +39,11 @@ public class Main
 				// view
 			} catch (Exception e)
 			{
-				System.err.println("Exception: " + e.getMessage() + "\n");
-				e.printStackTrace();
+				System.err
+						.println("Es ist eine unerwartete Exception aufgetreten."
+								+ "Fehlermeldung: "
+								+ e.getLocalizedMessage()
+								+ "\n");
 			}
 		} else
 		{

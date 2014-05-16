@@ -41,8 +41,10 @@ public class Controller
 	 * @throws FileNotFoundException
 	 *             Falls eine Datei nicht erstellt oder nicht geöffnet werden
 	 *             kann.
-	 * @throws InputMismatchException Falls syntaktische Fehler auftreten.
-	 * @throws IllegalArgumentException Falls semantische Fehler auftreten.
+	 * @throws InputMismatchException
+	 *             Falls syntaktische Fehler auftreten.
+	 * @throws IllegalArgumentException
+	 *             Falls semantische Fehler auftreten.
 	 */
 	public Controller(File inFile, File outFile) throws FileNotFoundException
 	{

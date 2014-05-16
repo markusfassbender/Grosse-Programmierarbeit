@@ -1,0 +1,7 @@
+; Beispiel: IHK Beispiel 2
+; Abmessungen der Flaeche
+5 6
+; Startparzelle
+5 1
+; Eckepunkte
+2 4 5 4

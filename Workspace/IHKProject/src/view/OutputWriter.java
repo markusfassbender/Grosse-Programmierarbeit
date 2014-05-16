@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.List;
 
 import controller.Strategy;
@@ -56,5 +57,5 @@ public abstract class OutputWriter
 	 * @param s
 	 *            Der String
 	 */
-	public abstract void append(String s);
+	public abstract void append(String s) throws IOException;
 }
