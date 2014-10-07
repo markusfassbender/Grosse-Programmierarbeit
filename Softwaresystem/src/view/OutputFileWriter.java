@@ -77,7 +77,7 @@ public class OutputFileWriter extends OutputWriter
 
 		for (Strategy strategy : strategies)
 		{
-			sb.append("\n" + strategy.getName() + "\n");
+			sb.append("\n" + strategy.getName() + ":\n");
 			sb.append(strategy.getBestArea().toString() + "\n");
 			sb.append("Routenplan:\n");
 			sb.append(formatRoute(strategy.getBestRoute()) + "\n");
@@ -106,7 +106,6 @@ public class OutputFileWriter extends OutputWriter
 			writer.write(sb.toString());
 		} catch (IOException ex)
 		{
-			// TODO: besser weiter werfen?
 			System.err.println("IOException: " + ex.getLocalizedMessage());
 		} finally
 		{
@@ -132,7 +131,6 @@ public class OutputFileWriter extends OutputWriter
 			writer.append(s);
 		} catch (IOException ex)
 		{
-			// TODO: besser weiter werfen?
 			System.err.println("IOException: " + ex.getLocalizedMessage());
 		} finally
 		{

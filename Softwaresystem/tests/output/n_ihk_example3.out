@@ -4,7 +4,7 @@ Startpunkt (2,1)
 2 S   H H H 
 3           
 
-Uhrzeiger-Strategie
+Uhrzeiger-Strategie:
   1 2 3 4 5
 1 > v       
 2 ^ v H H H 
@@ -13,7 +13,7 @@ Uhrzeiger-Strategie
 Routenplan:
 2,1 / 1,1 / 1,2 / 3,2 / 3,5
 
-Meine Strategie
+Meine Strategie:
   1 2 3 4 5
 1 > v       
 2 ^ v H H H 

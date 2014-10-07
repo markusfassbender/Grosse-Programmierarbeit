@@ -65,7 +65,7 @@ public class InputFileReader extends InputReader
 					{
 						sc.close();
 						throw new InputMismatchException(
-								"Die Abmessungen der Flaeche muessen ganzzahlig sein!");
+								"Die Abmessung der Flaeche muss ganzzahlig sein!");
 					}
 
 					if (!isValueValid(dimensions[0])
@@ -73,7 +73,7 @@ public class InputFileReader extends InputReader
 					{
 						sc.close();
 						throw new InputMismatchException(
-								"Die Abmessung der Flaeche muessen zwischen "
+								"Die Abmessung der Flaeche muss zwischen "
 										+ DIMENSION_MINIMUM + " und "
 										+ DIMENSION_MAXIMUM + " liegen!");
 					}
